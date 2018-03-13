@@ -13,17 +13,18 @@ def learn_load_csv(str):
     for recode in training_data_list:
         all_values=recode.split(',')
         inputs=(np.asfarray(all_values[1:]))
-        targets=(np.asfarray(int(all_values[0])))
-        print(targets)
+        targets=(np.asfarray(all_values[0:1]))
         x_train=np.append(x_train,np.array([inputs]),axis=0)
         t_train=np.append(t_train,np.array([targets]),axis=0)
     return (x_train,t_train)#x_train:開花日 t_train:年度
 
 
+
+
 def load_csv():
-    (x,y)=learn_load_csv("/Users/kazuki/Google ドライブ/DL4US最終課題/桜前線プロジェクト/データセット/Flowering_date.csv")#桜開花日データ
+    (x,y)=learn_load_csv("../dataset/Flowering_date.csv")#桜開花日データ
     return(x,y)
 
 x,y=load_csv()
-print(x)
-print(y)
+print(x[0])
+print(y[0])
